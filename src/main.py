@@ -3,12 +3,22 @@ from dotenv import load_dotenv
 load_dotenv()
 # IMPORT from External libraries
 from fastapi import FastAPI, File, UploadFile 
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 # IMPORT from Internal libraries
 from lib.mistral.utils import get_answer_from_llm, get_chunks_from_text
 from lib.qdrant.utils import get_relevant_points, upload_points, get_point_from_chunk
 
 app = FastAPI()
+
+origins = ["*"]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class ChatQuery(BaseModel):
     question: str
