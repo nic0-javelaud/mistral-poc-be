@@ -1,0 +1,7 @@
+fastapi[standard]
+mistralai
+qdrant_client
+pydantic
+pypdf
+python-multipart
+uvicorn
