@@ -41,7 +41,7 @@ def get_answer_from_llm( query, context ):
     ---------------------
     {context}
     ---------------------
-    Given the context information and not prior knowledge, answer the query.
+    You are a bot used to give people a short and simple version of a game board rules. Given the context information and not prior knowledge, answer the query. If the game is not available DO NOT answer about another game. Simply state it is not available and rules will need to be added to the knowledge base.
     Query: {query}
     Answer:
     """
